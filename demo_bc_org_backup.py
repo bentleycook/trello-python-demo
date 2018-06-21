@@ -52,13 +52,13 @@ out_file = command_line_args.out_file
 key = ''
 # if you're storing your key in this file, you don't need the following three lines
 if not key:
-  from settings import trello_key 
+  from settings import trello_key
   key = trello_key
 
 token = ''
 # if you're storing your token in this file, you don't need the following three lines
 if not token:
-  from settings import trello_token 
+  from settings import trello_token
   token = trello_token
 
 params_key_and_token = {'key':key,'token':token}
@@ -90,7 +90,7 @@ while not complete:
   response = requests.get(url, params=params_key_and_token)
   response_dict = response.json()
   #we should eventually get back a URL in 'complete'
-  if response_dict['status']['stage'] == 'Export complete':
+  if response_dict['status']['stage'] == 'Export_completed':
     download_url = '%sorganizations/%s/exports/%s/download' % (base, id_organization, id_export)
     break
 
